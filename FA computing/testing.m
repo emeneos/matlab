@@ -1,5 +1,5 @@
 input_filepath = 'dwi.nii.gz';
-output_filepath = 'fa_calculated.nii.gz';
+output_filepath = 'fa_calculated.nii';
 mask_filepath = 'mask.nii.gz';  % Optional: Provide a mask file path, or leave it empty
 bval = 'dwi.bvals';
 bvec = 'dwi.bvecs';
