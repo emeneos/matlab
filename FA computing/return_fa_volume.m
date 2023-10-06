@@ -1,4 +1,5 @@
 function FA = return_fa_volume(filepath, bval, bvec, maskpath)
+    %#codegen
     % Load diffusion MRI data from the specified file
     dmri = niftiread(filepath);
 
@@ -26,7 +27,7 @@ function FA = return_fa_volume(filepath, bval, bvec, maskpath)
     atti = dwi ./ bsl; % It represents the apparent tensor inverse
 
     % Initialize the fractional anisotropy (FA) matrix
-    FA = zeros(size(bvec, 1), size(bvec, 2), size(bvec, 3)); % Size: 64x3 double
+    %FA = zeros(size(bvec, 1), size(bvec, 2), size(bvec, 3)); % Size: 64x3 double
 
     % Reorder b-values
     bval = permute(bval(:), [2, 3, 4, 1]);
@@ -47,9 +48,6 @@ function FA = return_fa_volume(filepath, bval, bvec, maskpath)
     % Initialize the tensor matrix
     tensor = zeros(size(li, 1), size(li, 2), size(li, 3), 6); % Size: 110x110x3x6
 
-    % Calculate the diffusion tensor D at each voxel
-    s = li(1, 1, 1, :);
-    s = s(:);
     for z = 1:size(li, 3)
         for y = 1:size(li, 2)
             for x = 1:size(li, 1)
@@ -99,7 +97,7 @@ function FA = return_fa_volume(filepath, bval, bvec, maskpath)
     close(figure(7));
 
     % Create a new figure for displaying the FA
-    hf7 = figure(7);
+    figure(7);
     cortesDMRI(FA, [0,1]);
     colorbar;
     title('FA');
