@@ -1,4 +1,5 @@
 function calculateAndSaveFA(input_filepath, output_filepath, mask_filepath, bval, bvec)
+    %#codegen
     % Calculate FA volume
     FA = return_fa_volume(input_filepath, bval, bvec, mask_filepath);
 
