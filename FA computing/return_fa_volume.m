@@ -1,10 +1,12 @@
 function FA = return_fa_volume(filepath, bval, bvec, maskpath)
     %#codegen
     % Load diffusion MRI data from the specified file
-    dmri = niftiread(filepath);
+    dmri = load_untouch_nii(filepath);
+    dmri = dmri.img;
 
     % Load the mask image
-    mask = niftiread(maskpath);
+    mask = load_untouch_nii(maskpath);
+    mask = mask.img;
 
     % Load b-values and b-vectors
     bval = load(bval);
