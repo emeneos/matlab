@@ -4,9 +4,9 @@
 
 function [hdr, filetype, fileprefix, machine] = load_nii_hdr(fileprefix)
     %#codegen
-   if ~exist('fileprefix','var')
-      error('Usage: [hdr, filetype, fileprefix, machine] = load_nii_hdr(filename)');
-   end
+   if ~exists_static_file(fileprefix)
+    error('File does not exist: %s', fileprefix);
+  end
 
    machine = 'ieee-le';
    new_ext = 0;
@@ -27,14 +27,14 @@ function [hdr, filetype, fileprefix, machine] = load_nii_hdr(fileprefix)
    if new_ext
       fn = sprintf('%s.nii',fileprefix);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.nii".', fileprefix);
          error(msg);
       end
    else
       fn = sprintf('%s.hdr',fileprefix);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.hdr".', fileprefix);
          error(msg);
       end
