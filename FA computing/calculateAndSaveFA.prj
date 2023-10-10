@@ -629,7 +629,7 @@
     <var.cfi.preBuildChecksum />
     <var.outdatedOnRestore />
     <var.lastUserSourceChecksum />
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\calculateAndSaveFA.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\copy_nii_structure.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\cortesDMRI.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\exists_static_file.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\findstr_static.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\generate_temp_filename.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_nii_ext.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch0_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii_img.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\return_fa_volume.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\save_untouch_nii.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\save_untouch_nii_hdr.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\calculateAndSaveFA.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\copy_nii_structure.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\cortesDMRI.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\create_temp_dir.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\exists_static_file.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\findstr_static.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\generate_temp_filename.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_nii_ext.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch0_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii_hdr.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\load_untouch_nii_img.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\remove_temp_dir.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\return_fa_volume.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\save_untouch_nii.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\FA computing\save_untouch_nii_hdr.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT />
     <param.configImportActive>false</param.configImportActive>
@@ -679,8 +679,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType />
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches />
@@ -823,6 +823,8 @@
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
+      <var.hasMatlabDeepLearningSupportPackage />
+      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
