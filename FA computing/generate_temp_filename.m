@@ -3,7 +3,8 @@ function filename = generate_temp_filename()
 
     % Generate a random file name.
     filename = strcat('temp_', num2str(rand(1) * 100000));
-
+    directory = pwd;
+    directory = strrep(directory, ' ', '');
     % Get the full path to the file.
-    filename = fullfile(pwd, filename);
+    filename = fullfile(directory, filename);
 end

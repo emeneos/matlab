@@ -123,7 +123,7 @@ function nii = load_untouch_nii(filename, img_idx, dim5_idx, dim6_idx, dim7_idx,
          error('Please check filename.');
       end
       tmpDir = generate_temp_filename();
-      mkdir(tmpDir);
+      temp_dir(tmpDir);
       if str2double(v(1:3)) < 7.1 
          error('Please use MATLAB 7.1 (with java) and above, or run gunzip outside MATLAB.');
       elseif strcmp(filename(end-6:end), '.img.gz')
