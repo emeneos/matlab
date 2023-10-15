@@ -286,7 +286,7 @@
       <param.CustomLibrary />
       <param.PostCodeGenCommand />
       <param.TargetLangStandard>Auto</param.TargetLangStandard>
-      <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
+      <param.CodeReplacementLibrary />
       <param.DeprecatedCRLFlag />
       <param.SameHardware>true</param.SameHardware>
       <param.Toolchain>Automatically locate an installed toolchain</param.Toolchain>
@@ -679,8 +679,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType />
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches />
@@ -823,8 +823,6 @@
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
-      <var.hasMatlabDeepLearningSupportPackage />
-      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />

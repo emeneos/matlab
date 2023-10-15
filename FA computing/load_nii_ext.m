@@ -17,8 +17,8 @@
 %  - Jimmy Shen (jimmy@rotman-baycrest.on.ca)
 %
 function ext = load_nii_ext(filename)
-
-   if ~exist('filename','var'),
+%#codegen
+   if ~exists_static_file(filename)
       error('Usage: ext = load_nii_ext(filename)');
    end
 
@@ -36,7 +36,7 @@ function ext = load_nii_ext(filename)
          error('Please check filename.');
       end
 
-      if str2num(v(1:3)) < 7.1 | ~usejava('jvm')
+      if str2double(v(1:3)) < 7.1 || ~usejava('jvm')
          error('Please use MATLAB 7.1 (with java) and above, or run gunzip outside MATLAB.');
       elseif strcmp(filename(end-6:end), '.img.gz')
          filename1 = filename;
@@ -92,14 +92,14 @@ function ext = load_nii_ext(filename)
    if new_ext
       fn = sprintf('%s.nii',filename);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.nii".', filename);
          error(msg);
       end
    else
       fn = sprintf('%s.hdr',filename);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.hdr".', filename);
          error(msg);
       end
@@ -108,7 +108,7 @@ function ext = load_nii_ext(filename)
    fid = fopen(fn,'r',machine);
    vox_offset = 0;
     
-   if fid < 0,
+   if fid < 0
       msg = sprintf('Cannot open file %s.',fn);
       error(msg);
    else
@@ -127,14 +127,14 @@ function ext = load_nii_ext(filename)
 
          %  first try reading the opposite endian to 'machine'
          %
-         switch machine,
+         switch machine
          case 'ieee-le', machine = 'ieee-be';
          case 'ieee-be', machine = 'ieee-le';
          end
 
          fid = fopen(fn,'r',machine);
 
-         if fid < 0,
+         if fid < 0
             msg = sprintf('Cannot open file %s.',fn);
             error(msg);
          else

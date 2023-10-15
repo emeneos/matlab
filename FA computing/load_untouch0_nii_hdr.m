@@ -3,7 +3,7 @@
 %  - Jimmy Shen (jimmy@rotman-baycrest.on.ca)
 
 function hdr = load_nii_hdr(fileprefix, machine)
-
+    %#codegen
    fn = sprintf('%s.hdr',fileprefix);
    fid = fopen(fn,'r',machine);
     
@@ -59,7 +59,7 @@ function [ hk ] = header_key(fid)
 	%                     volumes are the same size. 
 
     v6 = version;
-    if str2num(v6(1))<6
+    if str2double(v6(1))<6
        directchar = '*char';
     else
        directchar = 'uchar=>char';
@@ -117,7 +117,7 @@ function [ dime ] = image_dimension(fid)
 	%       };                               /* total=108 bytes */
 
     v6 = version;
-    if str2num(v6(1))<6
+    if str2double(v6(1))<6
        directchar = '*char';
     else
        directchar = 'uchar=>char';
@@ -171,7 +171,7 @@ function [ hist ] = data_history(fid)
 	%       };                               /* total=200 bytes */
 
     v6 = version;
-    if str2num(v6(1))<6
+    if str2double(v6(1))<6
        directchar = '*char';
     else
        directchar = 'uchar=>char';

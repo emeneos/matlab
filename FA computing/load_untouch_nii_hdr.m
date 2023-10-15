@@ -3,18 +3,18 @@
 %  - Jimmy Shen (jimmy@rotman-baycrest.on.ca)
 
 function hdr = load_nii_hdr(fileprefix, machine, filetype)
-
+%#codegen
    if filetype == 2
       fn = sprintf('%s.nii',fileprefix);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.nii".', fileprefix);
          error(msg);
       end
    else
       fn = sprintf('%s.hdr',fileprefix);
 
-      if ~exist(fn)
+      if ~exists_static_file(fn)
          msg = sprintf('Cannot find file "%s.hdr".', fileprefix);
          error(msg);
       end
@@ -22,7 +22,7 @@ function hdr = load_nii_hdr(fileprefix, machine, filetype)
 
    fid = fopen(fn,'r',machine);
     
-   if fid < 0,
+   if fid < 0
       msg = sprintf('Cannot open file %s.',fn);
       error(msg);
    else
@@ -81,7 +81,7 @@ function [ hk ] = header_key(fid)
 	%                     volumes are the same size. 
 
     v6 = version;
-    if str2num(v6(1))<6
+    if str2double(v6(1))<6
        directchar = '*char';
     else
        directchar = 'uchar=>char';
@@ -191,7 +191,7 @@ function [ hist ] = data_history(fid)
 	%       };                               /* total=200 bytes */
 
     v6 = version;
-    if str2num(v6(1))<6
+    if str2double(v6(1))<6
        directchar = '*char';
     else
        directchar = 'uchar=>char';
