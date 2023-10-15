@@ -13,12 +13,11 @@
 %
 function save_untouch_nii(nii, filename)
    %#codegen
-   if ~exist('nii','var') | isempty(nii) || ~isfield(nii,'hdr') || ...
-	~isfield(nii,'img') || ~exist('filename','var') | isempty(filename)
-
-      error('Usage: save_untouch_nii(nii, filename)');
-   end
-
+   % Check if the required arguments are provided.
+    if ~all([isstruct(nii), isfield(nii, 'hdr'), isfield(nii, 'img'), ischar(filename), ~isempty(filename)])
+        error('Usage: save_untouch_nii(nii, filename)');
+    end
+    
    if ~isfield(nii,'untouch') || nii.untouch == 0
       error('Usage: please use ''save_nii.m'' for the modified structure.');
    end
