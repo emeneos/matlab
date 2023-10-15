@@ -35,8 +35,9 @@ function ext = load_nii_ext(filename)
 
          error('Please check filename.');
       end
-
-      if str2double(v(1:3)) < 7.1 || ~usejava('jvm')
+      tmpDir = generate_temp_filename();
+      create_temp_dir(tmpDir);
+      if str2double(v(1:3)) < 7.1
          error('Please use MATLAB 7.1 (with java) and above, or run gunzip outside MATLAB.');
       elseif strcmp(filename(end-6:end), '.img.gz')
          filename1 = filename;
@@ -44,8 +45,7 @@ function ext = load_nii_ext(filename)
          filename2(end-6:end) = '';
          filename2 = [filename2, '.hdr.gz'];
 
-         tmpDir = tempname;
-         mkdir(tmpDir);
+
          gzFileName = filename;
 
          filename1 = gunzip(filename1, tmpDir);
@@ -56,17 +56,12 @@ function ext = load_nii_ext(filename)
          filename2 = filename;
          filename2(end-6:end) = '';
          filename2 = [filename2, '.img.gz'];
-
-         tmpDir = tempname;
-         mkdir(tmpDir);
          gzFileName = filename;
 
          filename1 = gunzip(filename1, tmpDir);
          filename2 = gunzip(filename2, tmpDir);
          filename = char(filename1);	% convert from cell to string
       elseif strcmp(filename(end-6:end), '.nii.gz')
-         tmpDir = tempname;
-         mkdir(tmpDir);
          gzFileName = filename;
          filename = gunzip(filename, tmpDir);
          filename = char(filename);	% convert from cell to string
