@@ -22,7 +22,7 @@ function ext = load_nii_ext(filename)
       error('Usage: ext = load_nii_ext(filename)');
    end
 
-
+   gzFileName ="";
    v = version;
 
    %  Check file extension. If .gz, unpack it into temp folder
@@ -71,18 +71,17 @@ function ext = load_nii_ext(filename)
    machine = 'ieee-le';
    new_ext = 0;
 
-   if findstr('.nii',filename) & strcmp(filename(end-3:end), '.nii')
+   if endsWith(filename, '.nii')
+        % Remove the .nii extension.
       new_ext = 1;
-      filename(end-3:end)='';
+      filename = filename(1:end-4);
    end
 
-   if findstr('.hdr',filename) & strcmp(filename(end-3:end), '.hdr')
-      filename(end-3:end)='';
-   end
-
-   if findstr('.img',filename) & strcmp(filename(end-3:end), '.img')
-      filename(end-3:end)='';
-   end
+  % Check if the filename ends with '.nii' or '.hdr' or '.img'.
+    if endsWith(filename, '.hdr') || endsWith(filename, '.img')
+        % Remove the extension.
+        filename = filename(1:end-4);
+    end
 
    if new_ext
       fn = sprintf('%s.nii',filename);
@@ -157,7 +156,8 @@ function ext = load_nii_ext(filename)
 
    %  Clean up after gunzip
    %
-   if exist('gzFileName', 'var')
+   if gzFileName==""
+   else
       rmdir(tmpDir,'s');
    end
 

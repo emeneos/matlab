@@ -31,7 +31,7 @@ function save_untouch_nii(nii, filename)
    end
 
    v = version;
-
+   gzFile =0;
    %  Check file extension. If .gz, unpack it into temp folder
    %
    if length(filename) > 2 & strcmp(filename(end-2:end), '.gz')
@@ -42,7 +42,7 @@ function save_untouch_nii(nii, filename)
 
          error('Please check filename.');
       end
-
+      gzFile = 0;
       if str2double(v(1:3)) < 7.1 
          error('Please use MATLAB 7.1 (with java) and above, or run gunzip outside MATLAB.');
       else
@@ -57,8 +57,8 @@ function save_untouch_nii(nii, filename)
    write_nii(nii, filetype, fileprefix);
 
    %  gzip output file if requested
-   %
-   if exist('gzFile', 'var')
+
+   if gzFile==1
       if filetype == 1
          gzip([fileprefix, '.img']);
          delete([fileprefix, '.img']);
