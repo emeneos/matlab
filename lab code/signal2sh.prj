@@ -50,7 +50,7 @@
       <param.MergeInstrumentationResults />
       <param.VerificationMode />
       <param.VerificationStatus>option.VerificationStatus.Inactive</param.VerificationStatus>
-      <param.EnableMexProfiling />
+      <param.EnableMexProfiling>false</param.EnableMexProfiling>
       <var.BuiltWithMexProfiling />
       <param.CustomSourceCode />
       <param.CustomHeaderCode />
@@ -78,7 +78,7 @@
       <param.InitFltsAndDblsToZero />
       <param.DefaultVariableInitialization />
       <param.ConstantInputs />
-      <param.EnableCRICodeCoverage />
+      <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
       <param.EnableAutoParallelizationReporting />
       <param.CacheDynamicArrayDataPointer />
       <param.EnableJIT />
@@ -595,8 +595,10 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>reviewIssues</param.WorkflowStep>
-    <param.TestSnippets />
+    <param.WorkflowStep>inputTypes</param.WorkflowStep>
+    <param.TestSnippets>
+      <item>main</item>
+    </param.TestSnippets>
     <param.ExternalFcnMajority />
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}\codegen\lib\signal2sh\signal2sh.lib</param.outputfile>
@@ -629,12 +631,12 @@
     <var.cfi.preBuildChecksum />
     <var.outdatedOnRestore />
     <var.lastUserSourceChecksum />
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\custom_parse_inputs.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\HARDIG.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\custom_parse_inputs.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\mexGenerateSHMatrix.mexw64&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT />
     <param.configImportActive>false</param.configImportActive>
     <var.isGpuCoder>false</var.isGpuCoder>
-    <var.notGpuCoder />
+    <var.notGpuCoder>true</var.notGpuCoder>
     <var.boundToGui>true</var.boundToGui>
     <var.isConfigDialog />
     <var.ecoderEnabled>false</var.ecoderEnabled>
@@ -679,8 +681,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType />
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches />
@@ -745,7 +747,6 @@
     <param.FixedPointUseDesignRanges />
     <unset>
       <param.objective />
-      <param.TestSnippets />
       <param.ExternalFcnMajority />
       <param.UseGlobals />
       <param.outputfile />
@@ -823,6 +824,8 @@
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
+      <var.hasMatlabDeepLearningSupportPackage />
+      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
@@ -886,11 +889,109 @@
       <param.FixedPointUseDesignRanges />
     </unset>
     <fileset.entrypoints>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m" />
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
+        <Marker>1698226729286</Marker>
+      </file>
     </fileset.entrypoints>
-    <fileset.testbench />
+    <fileset.testbench>
+      <file>${PROJECT_ROOT}\main.m</file>
+    </fileset.testbench>
     <fileset.inputtypes>
-      <file>${PROJECT_ROOT}\signal2sh.m</file>
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
+        <Inputs fileName="signal2sh.m" functionName="signal2sh">
+          <Input Name="signal" typeId="0" />
+          <Input Name="gi" typeId="1" />
+          <Input Name="varargin" typeId="2">
+            <Field Name="varargin{1}" typeId="3" />
+            <Field Name="varargin{2}" typeId="4" />
+            <Field Name="varargin{3}" typeId="5" />
+            <Field Name="varargin{4}" typeId="4" />
+            <Field Name="varargin{5}" typeId="6" />
+            <Field Name="varargin{6}" typeId="4" />
+            <Field Name="varargin{7}" typeId="7" />
+            <Field Name="varargin{8}" typeId="8" />
+          </Input>
+          <idpTable>
+            <type typeId="0">
+              <Class>double</Class>
+              <Size>64 x 64 x 32 x 20</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+            </type>
+            <type typeId="1">
+              <Class>double</Class>
+              <Size>20 x 3</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+            </type>
+            <type typeId="2">
+              <Class>cell</Class>
+              <Size>1 x 8</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+              <TypeName />
+              <Extern>false</Extern>
+              <HeaderFile />
+              <Alignment>-1</Alignment>
+              <Homogeneous>false</Homogeneous>
+            </type>
+            <type typeId="3">
+              <Class>char</Class>
+              <Size>1 x 1</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+            </type>
+            <type typeId="4">
+              <Class>double</Class>
+              <Size>1 x 1</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Complex>false</Complex>
+              <Sparse>false</Sparse>
+            </type>
+            <type typeId="5">
+              <Class>char</Class>
+              <Size>1 x 6</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+            </type>
+            <type typeId="6">
+              <Class>char</Class>
+              <Size>1 x 7</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+            </type>
+            <type typeId="7">
+              <Class>char</Class>
+              <Size>1 x 4</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+            </type>
+            <type typeId="8">
+              <Class>logical</Class>
+              <Size>64 x 64 x 32</Size>
+              <Value />
+              <InitialValue />
+              <UserDefined>false</UserDefined>
+              <Sparse>false</Sparse>
+            </type>
+          </idpTable>
+        </Inputs>
+      </file>
     </fileset.inputtypes>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\codegen\lib\signal2sh" name="signal2sh.lib" optional="false">D:\uvalladolid\matlab\lab code\codegen\lib\signal2sh\signal2sh.lib</file>
