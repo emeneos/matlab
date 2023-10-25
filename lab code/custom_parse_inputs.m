@@ -47,11 +47,12 @@ function opt = custom_parse_inputs(opt,optchk,varargin)
 %    - Finally, just call this function to parse the optional arguments:
 %        opt = custom_parse_inputs(opt,optsizes,varargin{:});
 
-if(isdeployed)
-    st = [];
-else
-    st = dbstack; % Check what function is calling this one
-end
+%if(isdeployed)
+%    st = [];
+%else
+%    st = dbstack; % Check what function is calling this one
+%end
+st = [];
 if(length(st)>1)
     calling_fcn = upper(st(2).name);
 else % Called from command window
