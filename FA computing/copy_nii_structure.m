@@ -1,8 +1,8 @@
 function niftiCopy = copy_nii_structure(input_filepath,FA)
-
+     %#codegen
     hdr = load_untouch_nii(input_filepath);
     hdr.img = FA;
-    hdr.hdr.dime.dim = [ndims(FA),size(FA),repmat(1,[1,8-1-ndims(FA)])];
+    hdr.hdr.dime.dim = [ndims(FA),size(FA),ones([1,8-1-ndims(FA)])];
     hdr.hdr.dime.pixdim(5)=0;
 
     % Get the datatype of the FA array
