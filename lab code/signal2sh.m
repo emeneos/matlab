@@ -56,7 +56,7 @@ opt.mask = true(M,N,P); optchk.mask = [true,true];    % boolean with the size of
 opt = custom_parse_inputs(opt,optchk,varargin{:});
 
 % Compute the LS matix for SH fitting:
-B   = GenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
+B   = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
 LR  = GenerateSHEigMatrix( opt.L );     % KxK
 WLS = (B'*B+(opt.lambda).*LR^2)\(B');   % (KxK)^(-1) * (KxG) -> KxG
 WLS = WLS'; % GxK, for convenience, see loop below
