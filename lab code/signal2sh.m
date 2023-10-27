@@ -1,4 +1,4 @@
-function SH = signal2sh( signal, gi, varargin )
+function SH = signal2sh( signal, gi, opt )
 %#codegen
 % function SH = signal2sh( signal, gi, 'opt1', value1, 'opt2', value2, ... )
 %
@@ -38,22 +38,6 @@ if(nargin<2)
 end
 [M,N,P,G] = size(signal);
 NV = M*N*P; % Total number of voxels to be processed
-if(~ismatrix(gi))
-    error('gi must be 2-d matlab matrix');
-end
-if(size(gi,1)~=G)
-    error('The number of rows in gi must match the 4-th dimension of dwi');
-end
-if(size(gi,2)~=3)
-    error('The gradients table gi must have size Gx3');
-end
-
-% Parse the optional input arguments:
-opt.L = 6;              optchk.L = [true,true];       % always 1x1 double
-opt.lambda = 0.006;     optchk.lambda = [true,true];  % always 1x1 double
-opt.chunksz = 1000;     optchk.chunksz = [true,true]; % always 1x1 double
-opt.mask = true(M,N,P); optchk.mask = [true,true];    % boolean with the size of the image field
-opt = custom_parse_inputs(opt,optchk,varargin{:});
 
 % Compute the LS matix for SH fitting:
 B   = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
