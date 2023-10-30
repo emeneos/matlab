@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2023a">
-  <configuration file="D:\uvalladolid\matlab\lab code\signal2sh.prj" location="D:\uvalladolid\matlab\lab code" name="signal2sh" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="2243811718" file="D:\uvalladolid\matlab\lab code\signal2sh.prj" location="D:\uvalladolid\matlab\lab code" name="signal2sh" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -40,7 +40,7 @@
       <param.CppStyleConst>true</param.CppStyleConst>
       <param.EnableDebugging>false</param.EnableDebugging>
       <param.Verbosity>option.Verbosity.Info</param.Verbosity>
-      <param.ReportPotentialDifferences>true</param.ReportPotentialDifferences>
+      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.HighlightImplicitExpansionIssues>true</param.HighlightImplicitExpansionIssues>
       <param.HighlightLoopControlIssues>true</param.HighlightLoopControlIssues>
@@ -49,7 +49,7 @@
       <param.DefaultTestFile />
       <param.MergeInstrumentationResults>false</param.MergeInstrumentationResults>
       <param.VerificationMode>option.VerificationMode.None</param.VerificationMode>
-      <param.VerificationStatus>option.VerificationStatus.FailedInference</param.VerificationStatus>
+      <param.VerificationStatus>option.VerificationStatus.Passed</param.VerificationStatus>
       <param.EnableMexProfiling>false</param.EnableMexProfiling>
       <var.BuiltWithMexProfiling>false</var.BuiltWithMexProfiling>
       <param.CustomSourceCode />
@@ -251,9 +251,9 @@
       <param.ReservedNameArray />
       <param.CppStyleConst>true</param.CppStyleConst>
       <param.RuntimeChecks>false</param.RuntimeChecks>
-      <param.Verbose />
+      <param.Verbose>false</param.Verbose>
       <param.Verbosity>option.Verbosity.Info</param.Verbosity>
-      <param.ReportPotentialDifferences>true</param.ReportPotentialDifferences>
+      <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.GenerateCodeMetricsReport>false</param.GenerateCodeMetricsReport>
       <param.GenerateCodeReplacementReport>false</param.GenerateCodeReplacementReport>
@@ -286,7 +286,7 @@
       <param.PostCodeGenCommand />
       <param.TargetLangStandard>Auto</param.TargetLangStandard>
       <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
-      <param.DeprecatedCRLFlag />
+      <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
       <param.Toolchain>Automatically locate an installed toolchain</param.Toolchain>
       <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
@@ -298,7 +298,7 @@
       <param.target.ActiveTarget />
       <param.HardwareVendor.Production>Generic</param.HardwareVendor.Production>
       <param.HardwareType.Production>MATLAB Host Computer</param.HardwareType.Production>
-      <param.HWDeviceType.Production />
+      <param.HWDeviceType.Production>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Production>
       <var.instance.enabled.Production>true</var.instance.enabled.Production>
       <param.HardwareSizeChar.Production>8</param.HardwareSizeChar.Production>
       <param.HardwareSizeShort.Production>16</param.HardwareSizeShort.Production>
@@ -319,7 +319,7 @@
       <param.HardwareDivisionRounding.Production>option.HardwareDivisionRounding.Zero</param.HardwareDivisionRounding.Production>
       <param.HardwareVendor.Target>Generic</param.HardwareVendor.Target>
       <param.HardwareType.Target>MATLAB Host Computer</param.HardwareType.Target>
-      <param.HWDeviceType.Target />
+      <param.HWDeviceType.Target>Generic-&gt;MATLAB Host Computer</param.HWDeviceType.Target>
       <var.instance.enabled.Target>false</var.instance.enabled.Target>
       <param.HardwareSizeChar.Target>8</param.HardwareSizeChar.Target>
       <param.HardwareSizeShort.Target>16</param.HardwareSizeShort.Target>
@@ -383,14 +383,14 @@
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>true</param.EnableAutoCommit>
       <param.RepositoryStyle>option.RepositoryStyle.Auto</param.RepositoryStyle>
-      <param.psCustomPrjState />
+      <param.psCustomPrjState>false</param.psCustomPrjState>
       <param.psCustomProjectFile />
-      <param.psCheckConfValue />
-      <param.psUniqueOutPutState />
-      <param.psOpenResultsState />
-      <param.psProductModeValue />
-      <param.psQuickConfValue />
-      <param.psOutputFolder />
+      <param.psCheckConfValue>option.psCheckConfValue.onWarnCheckConfDlg</param.psCheckConfValue>
+      <param.psUniqueOutPutState>true</param.psUniqueOutPutState>
+      <param.psOpenResultsState>true</param.psOpenResultsState>
+      <param.psProductModeValue>option.psProductModeValue.codeProver</param.psProductModeValue>
+      <param.psQuickConfValue>option.psQuickConfValue.proj</param.psQuickConfValue>
+      <param.psOutputFolder>results_$codegenName$</param.psOutputFolder>
       <unset>
         <param.WorkingFolder />
         <param.SpecifiedWorkingFolder />
@@ -594,7 +594,7 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>verifyCompatibility</param.WorkflowStep>
+    <param.WorkflowStep>generateCode</param.WorkflowStep>
     <param.TestSnippets>
       <item>main</item>
     </param.TestSnippets>
@@ -615,7 +615,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum />
+    <param.AnnotationChecksum>1683466965</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -623,13 +623,14 @@
     <var.DismissScreener>false</var.DismissScreener>
     <param.unifiedParamStorage />
     <param.hdlParamStorage />
-    <var.gc.lastOutputRoot />
-    <var.gc.lastOutputType />
-    <var.gc.preBuildChecksum />
+    <var.gc.lastOutputRoot>codegen\lib\signal2sh</var.gc.lastOutputRoot>
+    <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
+    <var.gc.preBuildChecksum>1730835103</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen\mex\signal2sh</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>4270702332</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>631557913</var.cfi.preBuildChecksum>
+    <var.lastCfiTestSnippet>main</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum />
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\signal2sh.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;6917284&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -662,7 +663,7 @@
     <param.gpu.StackLimitPerThread>1024</param.gpu.StackLimitPerThread>
     <param.gpu.MaximumBlocksPerKernel>0</param.gpu.MaximumBlocksPerKernel>
     <param.gpu.Benchmarking>false</param.gpu.Benchmarking>
-    <param.gpu.SafeBuild>true</param.gpu.SafeBuild>
+    <param.gpu.SafeBuild>false</param.gpu.SafeBuild>
     <param.gpu.KernelNamePrefix />
     <param.gpu.CompilerFlags />
     <param.gpu.EnableCUBLAS>false</param.gpu.EnableCUBLAS>
@@ -679,9 +680,9 @@
     <param.deeplearning.EnableDeepLearning>false</param.deeplearning.EnableDeepLearning>
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
-    <var.cfiTargetLibSuppression>true</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
+    <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
+    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches>0</param.tensorrt.NumCalibrationBatches>
@@ -763,7 +764,6 @@
       <param.AutoInferUnboundedSizeThreshold />
       <param.EnableFixedPointStep />
       <param.EnableScreener />
-      <param.AnnotationChecksum />
       <var.LegacyTarget />
       <var.MirrorOnOpen />
       <param.FixedPointEnabled />
@@ -771,11 +771,7 @@
       <var.DismissScreener />
       <param.unifiedParamStorage />
       <param.hdlParamStorage />
-      <var.gc.lastOutputRoot />
-      <var.gc.lastOutputType />
-      <var.gc.preBuildChecksum />
       <var.outdatedOnRestore />
-      <var.lastUserSourceChecksum />
       <param.forceMexBuild />
       <param.NoDefaultJIT />
       <param.configImportActive />
@@ -821,8 +817,7 @@
       <param.deeplearning.EnableDeepLearning />
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
-      <var.hasMatlabDeepLearningSupportPackage />
-      <var.hasGpuDeepLearningSupportPackage />
+      <var.cfiTargetLibSuppression />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
@@ -887,7 +882,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
-        <Marker>1698402673167</Marker>
+        <Marker>1698673032255</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
