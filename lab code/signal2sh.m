@@ -1,4 +1,7 @@
-function SH = signal2sh( signal, gi, opt )
+
+function SH = signal2sh( signal, gi, opt ) %#codegen
+% Declare the MEX function as extrinsic.
+coder.extrinsic('mexGenerateSHMatrix');
 %#codegen
 % function SH = signal2sh( signal, gi, 'opt1', value1, 'opt2', value2, ... )
 %
@@ -41,6 +44,12 @@ NV = M*N*P; % Total number of voxels to be processed
 
 % Compute the LS matix for SH fitting:
 B   = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
+% size of B is 64 x (R = (L/2 + 1) * (L + 1)), L comes from the
+% create_signal2sh_options. Also remember that the 64 is G from the
+% signal.then we can do B = double(zeros(G,R)) ;
+R = (L/2 + 1) * (L + 1);
+B = double(zeros(G,R));
+B = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
 LR  = GenerateSHEigMatrix( opt.L );     % KxK
 WLS = (B'*B+(opt.lambda).*LR^2)\(B');   % (KxK)^(-1) * (KxG) -> KxG
 WLS = WLS'; % GxK, for convenience, see loop below
