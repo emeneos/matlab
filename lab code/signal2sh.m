@@ -47,6 +47,7 @@ B   = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
 % size of B is 64 x (R = (L/2 + 1) * (L + 1)), L comes from the
 % create_signal2sh_options. Also remember that the 64 is G from the
 % signal.then we can do B = double(zeros(G,R)) ;
+L = opt.L;
 R = (L/2 + 1) * (L + 1);
 B = double(zeros(G,R));
 B = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2

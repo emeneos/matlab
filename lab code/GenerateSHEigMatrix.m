@@ -3,8 +3,9 @@ function out = GenerateSHEigMatrix( L )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Global parameters:
+L = int32( L );
 if( L/2 ~= floor(L/2) )
-    warning(['The index L has been changed from ',num2str(L),' to ',num2str(L-1)]);
+    warning(['The index L has been changed from ',sprintf('%d',L),' to ',sprintf('%d',L-1)]);
     L = L-1;
 end
 R   = ( L/2 + 1 )*( L + 1 );
