@@ -1,7 +1,7 @@
 
 function SH = signal2sh( signal, gi, opt ) %#codegen
 % Declare the MEX function as extrinsic.
-coder.extrinsic('mexGenerateSHMatrix');
+%coder.extrinsic('mexGenerateSHMatrix');
 %#codegen
 % function SH = signal2sh( signal, gi, 'opt1', value1, 'opt2', value2, ... )
 %
@@ -50,7 +50,16 @@ NV = M*N*P; % Total number of voxels to be processed
 L = opt.L;
 R = (L/2 + 1) * (L + 1);
 B = double(zeros(G,R));
-B = mexGenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
+if coder.target('MATLAB')
+    %execute interpreted matlab code
+    B = GenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
+else
+    %generate  C code using existing C code
+    coder.updateBuildInfo('addSourceFiles','mexGenerateSHMatrix.c'); %I can not find the h file 
+    coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
+    fprintf('Running custom C code...');
+    coder.ceval('mexGenerateSHMatrix',coder.ref(opt.L),coder.ref(gi));
+end
 LR  = GenerateSHEigMatrix( opt.L );     % KxK
 WLS = (B'*B+(opt.lambda).*LR^2)\(B');   % (KxK)^(-1) * (KxG) -> KxG
 WLS = WLS'; % GxK, for convenience, see loop below
