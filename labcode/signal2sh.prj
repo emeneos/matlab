@@ -620,18 +620,18 @@
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
     <var.redirectedInputTypeData />
-    <var.DismissScreener>false</var.DismissScreener>
+    <var.DismissScreener>true</var.DismissScreener>
     <param.unifiedParamStorage />
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot />
     <var.gc.lastOutputType />
     <var.gc.preBuildChecksum />
     <var.cfi.lastOutputRoot>codegen\mex\signal2sh</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>1121867323</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>2305434004</var.cfi.preBuildChecksum>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
     <var.lastUserSourceChecksum />
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\lab code\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
-    <param.forceMexBuild>true</param.forceMexBuild>
+    <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
     <var.isGpuCoder>false</var.isGpuCoder>
@@ -680,8 +680,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>true</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches>0</param.tensorrt.NumCalibrationBatches>
@@ -768,7 +768,6 @@
       <var.MirrorOnOpen />
       <param.FixedPointEnabled />
       <var.redirectedInputTypeData />
-      <var.DismissScreener />
       <param.unifiedParamStorage />
       <param.hdlParamStorage />
       <var.gc.lastOutputRoot />
@@ -776,6 +775,7 @@
       <var.gc.preBuildChecksum />
       <var.outdatedOnRestore />
       <var.lastUserSourceChecksum />
+      <param.forceMexBuild />
       <param.NoDefaultJIT />
       <param.configImportActive />
       <var.isGpuCoder />
@@ -820,6 +820,8 @@
       <param.deeplearning.EnableDeepLearning />
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
+      <var.hasMatlabDeepLearningSupportPackage />
+      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
@@ -884,10 +886,12 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
-        <Marker>1698923345801</Marker>
+        <Marker>1698929602171</Marker>
       </file>
     </fileset.entrypoints>
-    <fileset.testbench />
+    <fileset.testbench>
+      <file>${PROJECT_ROOT}\main.m</file>
+    </fileset.testbench>
     <fileset.inputtypes>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
         <Inputs fileName="signal2sh.m" functionName="signal2sh">
