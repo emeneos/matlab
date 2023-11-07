@@ -11,6 +11,7 @@ function build(target)
 
     cfg = coder.config(target);
 
+    cfg.TargetLang = 'C++';
     %custom source file
 
     cfg.CustomSource = 'sumfunction.cpp';
