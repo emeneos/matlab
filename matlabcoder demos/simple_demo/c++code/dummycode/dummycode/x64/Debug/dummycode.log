@@ -1,4 +1,2 @@
-﻿  main.cpp
-D:\uvalladolid\matlab\matlabcoder demos\simple_demo\c++code\dummycode\dummycode\main.cpp(5,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-main.obj : error LNK2019: unresolved external symbol "double __cdecl DummyFunction2doubles(double,double)" (?DummyFunction2doubles@@YANNN@Z) referenced in function main
+﻿main.obj : error LNK2019: unresolved external symbol "double __cdecl DummyFunction2doubles(double,double)" (?DummyFunction2doubles@@YANNN@Z) referenced in function main
 D:\uvalladolid\matlab\matlabcoder demos\simple_demo\c++code\dummycode\x64\Debug\dummycode.exe : fatal error LNK1120: 1 unresolved externals
