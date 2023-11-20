@@ -55,7 +55,8 @@ if coder.target('MATLAB')
     B = GenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
 else
     %generate  C code using existing C code
-    coder.updateBuildInfo('addSourceFiles','mexGenerateSHMatrix.c'); %I can not find the h file 
+    coder.varsize('G', [inf, inf], [1 1]);
+    coder.updateBuildInfo('addSourceFiles','mexGenerateSHMatrix.cpp'); %I can not find the h file 
     coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
     fprintf('Running custom C code...');
     coder.ceval('mexGenerateSHMatrix',coder.ref(opt.L),coder.ref(gi));

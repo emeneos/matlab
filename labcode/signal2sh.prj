@@ -620,17 +620,17 @@
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
     <var.redirectedInputTypeData />
-    <var.DismissScreener>false</var.DismissScreener>
+    <var.DismissScreener>true</var.DismissScreener>
     <param.unifiedParamStorage />
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot />
     <var.gc.lastOutputType />
     <var.gc.preBuildChecksum />
     <var.cfi.lastOutputRoot>codegen\mex\signal2sh</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>3784737057</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>4078189044</var.cfi.preBuildChecksum>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
     <var.lastUserSourceChecksum />
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\labcode\GenerateSHEigMatrix.m&lt;/file&gt;&lt;file&gt;D:\uvalladolid\matlab\labcode\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;D:\uvalladolid\matlab\labcode\signal2sh.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -768,7 +768,6 @@
       <var.MirrorOnOpen />
       <param.FixedPointEnabled />
       <var.redirectedInputTypeData />
-      <var.DismissScreener />
       <param.unifiedParamStorage />
       <param.hdlParamStorage />
       <var.gc.lastOutputRoot />
@@ -887,7 +886,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}\signal2sh.m">
-        <Marker>1699357725278</Marker>
+        <Marker>1700126908105</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
