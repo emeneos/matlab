@@ -16,8 +16,8 @@ in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradi
 
 
 #include "mex.h"
-#include "../mathsmex/sphericalHarmonics.h"
-#include "../mathsmex/mexToMathsTypes.h"
+#include "sphericalHarmonics.hpp"
+#include "mexToMathsTypes.hpp"
 
  /* The gateway function */
 void mexFunction(int nlhs, mxArray* plhs[],
@@ -30,6 +30,12 @@ void mexFunction(int nlhs, mxArray* plhs[],
     if (nlhs < 1) {
         mexErrMsgIdAndTxt("MyToolbox:mexGenerateSHMatrix:nlhs", "At least one output required.");
     }
+
+    /* make sure the third input argument is provided */
+    if (nrhs < 3) {
+        mexErrMsgIdAndTxt("MyToolbox:mexGenerateSHMatrix:nrhs", "Third input (output matrix) required.");
+    }
+
     /* make sure the first input argument is scalar */
     if (!mxIsDouble(prhs[0]) ||
         mxIsComplex(prhs[0]) ||
@@ -97,9 +103,13 @@ void mexFunction(int nlhs, mxArray* plhs[],
     delete[] gy;
     delete[] gz;
 
-    plhs[0] = mxCreateDoubleMatrix(G, shmaths::getNumberOfEvenAssociatedLegendrePolynomials(L), mxREAL);
-    shmaths::computeSHMatrixSymmetric(G, theta, phi, L, mxGetDoubles(plhs[0]));
+    /* Access the output matrix directly from prhs[2] */
+    mxDouble* outputData = mxGetDoubles(prhs[2]);
 
+    /*plhs[0] = mxCreateDoubleMatrix(G, shmaths::getNumberOfEvenAssociatedLegendrePolynomials(L), mxREAL); */
+    /*shmaths::computeSHMatrixSymmetric(G, theta, phi, L, mxGetDoubles(plhs[0]));*/
+    /* Compute the SH matrix and store the result in the provided matrix */
+    shmaths::computeSHMatrixSymmetric(G, theta, phi, L, outputData);
     delete[] theta;
     delete[] phi;
 
