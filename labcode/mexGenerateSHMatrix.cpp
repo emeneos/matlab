@@ -15,9 +15,11 @@ in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradi
 
 
 
+
 #include "mex.h"
-#include "sphericalHarmonics.hpp"
-#include "mexToMathsTypes.hpp"
+/*include <D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/>*/
+#include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/sphericalHarmonics.h"
+#include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/mexToMathsTypes.h"
 
  /* The gateway function */
 void mexFunction(int nlhs, mxArray* plhs[],
