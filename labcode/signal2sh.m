@@ -49,7 +49,8 @@ NV = M*N*P; % Total number of voxels to be processed
 % signal.then we can do B = double(zeros(G,R)) ;
 L = opt.L;
 R = (L/2 + 1) * (L + 1);
-B = double(zeros(G,R));
+B = zeros(G,R);
+M = size(gi,1);
 if coder.target('MATLAB')
     %execute interpreted matlab code
     B = GenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
@@ -59,7 +60,14 @@ else
     coder.cinclude('mexGenerateSHMatrix.cpp'); %I can not find the h file 
     %coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
     %fprintf('Running custom C code...');
-    coder.ceval('mexGenerateSHMatrix',coder.ref(opt.L),coder.ref(gi),coder.ref(B));
+
+    
+
+    
+    % Call mexGenerateSHMatrix
+    coder.ceval('mexGenerateSHMatrix',B,[], gi, M);
+
+    %coder.ceval('mexGenerateSHMatrix',1,B,3,coder.ref(opt.L),coder.ref(gi),coder.ref(B));
 end
 LR  = GenerateSHEigMatrix( opt.L );     % KxK
 WLS = (B'*B+(opt.lambda).*LR^2)\(B');   % (KxK)^(-1) * (KxG) -> KxG
