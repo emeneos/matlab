@@ -21,7 +21,10 @@ in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradi
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/sphericalHarmonics.h"
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/mexToMathsTypes.h"
 
-#ifdef CODER
+
+
+#ifdef MATLAB_MEX_FILE    /* Is this file being compiled as a 
+                             MEX-file? */
 
 int mexFunction( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi, const unsigned int G_ )
 {
