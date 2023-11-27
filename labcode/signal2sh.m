@@ -57,7 +57,9 @@ if coder.target('MATLAB')
 else
     %generate  C code using existing C code(*(sd
     %coder.varsize('G', [inf, inf], [1 1]);
-    coder.cinclude('test.cpp'); %I can not find the h file 
+    coder.cinclude('test.cpp'); 
+    %coder.cinclude('mexGenerateSHMatrix.cpp'); 
+    %I can not find the h file 
     %coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
     %fprintf('Running custom C code...');
 
@@ -66,6 +68,7 @@ else
     
     % Call mexGenerateSHMatrix
     coder.ceval('test',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
+    %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(G_));
 
     %coder.ceval('mexGenerateSHMatrix',1,B,3,coder.ref(opt.L),coder.ref(gi),coder.ref(B));

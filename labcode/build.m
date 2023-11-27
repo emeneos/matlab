@@ -11,10 +11,12 @@ function build(target)
     cfg.TargetLang = 'C++';
     %custom source file
 
+    %cfg.CustomSource = 'mexGenerateSHMatrix.cpp';
     cfg.CustomSource = 'test.cpp';
 
     %Custom source code
 
+    %cfg.CustomSourceCode = '#include "mexGenerateSHMatrix.h"';
     cfg.CustomSourceCode = '#include "test.h"';
     cfg.CustomInclude = 'D:\uvalladolid\matlab\labcoded';
     %generate and launch report
