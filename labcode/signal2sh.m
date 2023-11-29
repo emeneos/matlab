@@ -67,8 +67,8 @@ else
 
     
     % Call mexGenerateSHMatrix
-    %coder.ceval('test',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
-    coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
+    coder.ceval('sharedFunction',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
+    %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(G_));
 
     %coder.ceval('mexGenerateSHMatrix',1,B,3,coder.ref(opt.L),coder.ref(gi),coder.ref(B));

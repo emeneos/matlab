@@ -6,12 +6,13 @@
  * This is a MEX-file for MATLAB.
  * Copyright 2022 - Antonio Tristán Vega
  *
- nlhs: Number of left-hand side arguments (outputs).
-plhs: Array of pointers to mxArray pointers for left-hand side arguments (outputs). plhs[0] is the SH matrix
-nrhs: Number of right-hand side arguments (inputs).
-prhs: Array of pointers to mxArray pointers for right-hand side arguments (inputs).
-in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradient Directions or Angular Coordinates)
+ * nlhs: Number of left-hand side arguments (outputs).
+ * plhs: Array of pointers to mxArray pointers for left-hand side arguments (outputs). plhs[0] is the SH matrix
+ * nrhs: Number of right-hand side arguments (inputs).
+ * prhs: Array of pointers to mxArray pointers for right-hand side arguments (inputs).
+ * in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradient Directions or Angular Coordinates)
  *========================================================*/
+
 
 
 
@@ -22,59 +23,6 @@ in this case prhs[0] is L (Order of Spherical Harmonics) and prhs[1] is G (Gradi
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/mexToMathsTypes.h"
 
 
-
-#ifdef MATLAB_MEX_FILE    /* Is this file being compiled as a 
-                             MEX-file? */
-
-int mexFunction( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi, const unsigned int G_ )
-{
-    /* make sure the first argument is even */
-    if (L != 2 * (L / 2)) {
-        return -1;
-    }
-
-    size_t G = (size_t)G_;
-    size_t D = 3;
-
-    double* gx = new double[G];
-    double* gy = new double[G];
-    double* gz = new double[G];
-    for (unsigned int k = 0; k < G; ++k) {
-        gx[k] = Gi[k];
-        gy[k] = Gi[k + G];
-        gz[k] = Gi[k + 2 * G];
-    }
-
-    if(plhs1!=NULL){
-        double* buffer = new double[L + 1];
-        for (unsigned int k = 0; k < G; ++k) {
-            shmaths::computeAssociatedLegendrePolynomialsL(gz[k], L, buffer);
-            for (unsigned int l = 0; l <= L; ++l)
-                plhs1[l * G + k] = buffer[l];
-        }
-        delete[] buffer;
-    }
-
-    double* theta = new double[G];
-    double* phi = new double[G];
-
-    shmaths::computeSphericalCoordsFromCartesian(gx, gy, gz, theta, phi, G);
-
-    delete[] gx;
-    delete[] gy;
-    delete[] gz;
-
-    shmaths::computeSHMatrixSymmetric(G, theta, phi, L, plhs0 );
-    /* Compute the SH matrix and store the result in the provided matrix */
-    // shmaths::computeSHMatrixSymmetric(G, theta, phi, L, outputData);
-    delete[] theta;
-    delete[] phi;
-
-    return 0;
-
-}
-
-#else
 
  /* The gateway function */
 void mexFunction(int nlhs, mxArray* plhs[],
@@ -172,4 +120,3 @@ void mexFunction(int nlhs, mxArray* plhs[],
 
 }
 
-#endif

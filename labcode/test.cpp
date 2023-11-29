@@ -1,5 +1,5 @@
 
-#ifdef CODER
+
 
 #include "mex.h"
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/sphericalHarmonics.h"
@@ -52,4 +52,3 @@ int test( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi,
 
 }
 
-#endif
