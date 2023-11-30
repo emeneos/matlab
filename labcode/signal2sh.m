@@ -58,7 +58,7 @@ else
     %generate  C code using existing C code(*(sd
     %coder.varsize('G', [inf, inf], [1 1]);
     %coder.cinclude('test.cpp'); 
-    coder.cinclude('mexGenerateSHMatrix.cpp'); 
+    coder.cinclude('sharedFunction.cpp'); 
     %I can not find the h file 
     %coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
     %fprintf('Running custom C code...');
