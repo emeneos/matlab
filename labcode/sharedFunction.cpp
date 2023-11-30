@@ -1,7 +1,12 @@
-#include "sharedFunction.h"
+#include "D:\uvalladolid\matlab\labcode\sharedFunction.h"
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/sphericalHarmonics.h" 
 #include "D:/uvalladolid/DMRIMatlab/mexcode/mathsmex/mexToMathsTypes.h"
-// Shared function to perform common operations used in different parts of the codebase
+
+#ifdef myVariable
+  if (myVariable == 10) {
+    int sharedFunction(double* plhs0, double* plhs1, const unsigned int L, const double* Gi, const unsigned int G_) {return -1;}
+  } else {
+   // Shared function to perform common operations used in different parts of the codebase
 int sharedFunction(double* plhs0, double* plhs1, const unsigned int L, const double* Gi, const unsigned int G_) {
     // Check if L is even
     if (L != 2 * (L / 2)) {
@@ -54,3 +59,6 @@ int sharedFunction(double* plhs0, double* plhs1, const unsigned int L, const dou
 
     return 0;  // Indicate success
 }
+
+  }
+#endif

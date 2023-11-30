@@ -12,20 +12,22 @@ function build(target)
     %custom source file
 
     %cfg.CustomSource = 'mexGenerateSHMatrix.cpp';
-    cfg.CustomSource = 'sharedFunction.cpp';
-    %cfg.CustomSource = 'test.cpp';
+    %cfg.CustomSource = 'sharedFunction.cpp';
+    cfg.CustomSource = ['test.cpp'];
 
     
 
     %Custom source code
-    cfg.CustomSourceCode = '#include "mexGenerateSHMatrix.h"';
+    %cfg.CustomSourceCode = ['#include "sharedFunction.h"'];
     %cfg.CustomSourceCode = '#include "sharedFunction.h"';
-
-    %cfg.CustomSourceCode = '#include "test.h"';
-    cfg.CustomInclude = 'D:\uvalladolid\matlab\labcoded';
+    cfg.CustomInclude='D:\uvalladolid\DMRIMatlab\mexcode\mathsmex';
+    cfg.CustomSourceCode = ['#include "test.h"'];
+    
+    
+    %cfg.CustomInclude = 'D:\uvalladolid\matlab\labcode';
     %generate and launch report
     cfg.GenerateReport = true;
-    cfg.LaunchReport = true;
+    cfg.LaunchReport = false;
 
 
 

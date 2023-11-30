@@ -58,16 +58,18 @@ else
     %generate  C code using existing C code(*(sd
     %coder.varsize('G', [inf, inf], [1 1]);
     %coder.cinclude('test.cpp'); 
-    coder.cinclude('sharedFunction.cpp'); 
+    %coder.cinclude('test.cpp'); 
     %I can not find the h file 
-    %coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
+    coder.cinclude('sphericalHarmonics.h');
+    coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\mathsmex');
+    coder.updateBuildInfo('addSourcePaths','D:\uvalladolid\DMRIMatlab\mexcode\sh');
     %fprintf('Running custom C code...');
 
     
 
     
     % Call mexGenerateSHMatrix
-    coder.ceval('sharedFunction',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
+    coder.ceval('test',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(G_));
 
