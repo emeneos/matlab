@@ -5,6 +5,8 @@
 #include "D:\uvalladolid\DMRIMatlab\mexcode\mathsmex\sphericalHarmonics.cpp"
 #include "D:\uvalladolid\DMRIMatlab\mexcode\mathsmex\sphericalHarmonics.h"
 #include "D:\uvalladolid\DMRIMatlab\mexcode\mathsmex\mexToMathsTypes.h"
+
+#ifdef CODER 
 int test( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi, const unsigned int G_ )
 {
     /* make sure the first argument is even */
@@ -53,3 +55,8 @@ int test( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi,
 
 }
 
+#else
+int test( double* plhs0, double* plhs1, const unsigned int L,  const double* Gi, const unsigned int G_ )
+{return 44;
+}
+#endif

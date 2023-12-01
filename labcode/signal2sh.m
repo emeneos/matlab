@@ -50,7 +50,6 @@ NV = M*N*P; % Total number of voxels to be processed
 L = opt.L;
 R = (L/2 + 1) * (L + 1);
 B = zeros(G,R);
-M = size(gi,1);
 if coder.target('MATLAB')
     %execute interpreted matlab code
     B = GenerateSHMatrix( opt.L, gi );    % GxK, where K=(L+1)(L+2)/2
@@ -69,7 +68,8 @@ else
 
     
     % Call mexGenerateSHMatrix
-    coder.ceval('test',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
+    coder.updateBuildInfo('addDefines', 'CODER');
+    coder.ceval('test',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(G));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(M));
     %coder.ceval('mexGenerateSHMatrix',coder.ref(B),[],uint8(L), coder.ref(gi),uint8(G_));
 
